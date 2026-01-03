@@ -21,6 +21,12 @@ Implementação focada na criação de famílias de objetos relacionados, sem de
 Implementação que delega a criação de objetos para subclasses, promovendo baixo acoplamento.  
 📁 Diretório: [`FactoryMethod`](./FactoryMethod)
 
+
+### 🏗️ Builder
+
+📁 Diretório: [`Builder`](./Builder/Src/Readme.md)
+
+
 ## 🎯 Objetivo
 
 Este repositório tem como principais objetivos:
