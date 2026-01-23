@@ -1,0 +1,52 @@
+@startuml
+title Padrão Adapter - Sistema de Reprodução de Mídia
+
+' ===== INTERFACES =====
+interface MediaPlayer {
+  + play(audioType: string, fileName: string)
+}
+
+interface AdvancedMediaPlayer {
+  + playMedia(fileName: string)
+}
+
+' ===== CLIENT =====
+class AudioPlayer {
+  + play(audioType: string, fileName: string)
+}
+
+' ===== ADAPTER =====
+class MediaAdapter {
+  - advancedPlayer: AdvancedMediaPlayer
+  + MediaAdapter(audioType: string)
+  + play(audioType: string, fileName: string)
+}
+
+' ===== ADAPTEES =====
+class Mp4Player {
+  + playMedia(fileName: string)
+}
+
+class VlcPlayer {
+  + playMedia(fileName: string)
+}
+
+' ===== ENUM =====
+enum TypeMedia {
+  MP3
+  MP4
+  VLC
+}
+
+' ===== RELACIONAMENTOS =====
+AudioPlayer ..> MediaPlayer : usa
+MediaAdapter ..|> MediaPlayer : implementa
+
+MediaAdapter o--> AdvancedMediaPlayer : adapta
+AdvancedMediaPlayer <|.. Mp4Player
+AdvancedMediaPlayer <|.. VlcPlayer
+
+AudioPlayer ..> MediaAdapter : cria
+MediaAdapter ..> TypeMedia : decide
+
+@enduml
