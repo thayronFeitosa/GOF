@@ -39,7 +39,7 @@ enum TypeMedia {
 }
 
 ' ===== RELACIONAMENTOS =====
-AudioPlayer ..> MediaPlayer : usa
+AudioPlayer ..|> MediaPlayer : implementa
 MediaAdapter ..|> MediaPlayer : implementa
 
 MediaAdapter o--> AdvancedMediaPlayer : adapta
