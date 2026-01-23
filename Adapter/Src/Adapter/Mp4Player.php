@@ -4,7 +4,7 @@ namespace Src\Adapter;
 use Src\Adapter\Contracts\AdvancedMediaPlayer;
 
 class Mp4Player implements AdvancedMediaPlayer {
-    public function playMedia(string $fileName) {
-        echo "Reproduzindo arquivo MP4: {$fileName}" . PHP_EOL;
+    public function playAudioMedia(string $fileName) {
+        echo "Reproduzindo audio do arquivo MP4: {$fileName}" . PHP_EOL;
     }
 }

@@ -2,5 +2,5 @@
 namespace Src\Adapter\Contracts;
 
 interface AdvancedMediaPlayer {
-    public function playMedia(string $fileName);
+    public function playAudioMedia(string $fileName);
 }

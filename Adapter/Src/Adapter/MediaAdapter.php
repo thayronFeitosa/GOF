@@ -24,8 +24,8 @@ class MediaAdapter implements MediaPlayer
     public function play(string $audioType, string $fileName): void
     {
         match ($audioType) {
-            TypeMedia::MP4->value => $this->advancedPlayer->playMedia($fileName),
-            TypeMedia::VLC->value => $this->advancedPlayer->playMedia($fileName),
+            TypeMedia::MP4->value => $this->advancedPlayer->playAudioMedia($fileName),
+            TypeMedia::VLC->value => $this->advancedPlayer->playAudioMedia($fileName),
             default => throw new \InvalidArgumentException(
                 "Formato {$audioType} não suportado pelo adapter"
             ),
