@@ -15,9 +15,7 @@ class MediaAdapter implements MediaPlayer
         $this->advancedPlayer = match ($audioType) {
             TypeMedia::MP4->value => new Mp4Player(),
             TypeMedia::VLC->value => new VlcPlayer(),
-            default => throw new \InvalidArgumentException(
-                "Formato {$audioType} não suportado pelo adapter"
-            ),
+            default => throw new \InvalidArgumentException("Formato {$audioType} não suportado pelo adapter"),
         };
     }
 
@@ -26,9 +24,7 @@ class MediaAdapter implements MediaPlayer
         match ($audioType) {
             TypeMedia::MP4->value => $this->advancedPlayer->playAudioMedia($fileName),
             TypeMedia::VLC->value => $this->advancedPlayer->playAudioMedia($fileName),
-            default => throw new \InvalidArgumentException(
-                "Formato {$audioType} não suportado pelo adapter"
-            ),
+            default => throw new \InvalidArgumentException("Formato {$audioType} não suportado pelo adapter"),
         };
     }
 }

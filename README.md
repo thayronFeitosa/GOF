@@ -27,6 +27,16 @@ Implementação que delega a criação de objetos para subclasses, promovendo ba
 📁 Diretório: [`Builder`](./Builder/Src/Readme.md)
 
 
+### 🏗️ Prototype
+
+📁 Diretório: [`Prototype`](./Prototype)
+
+
+### 🏗️ Adapter
+
+📁 Diretório: [`Adapter`](./Adapter/README.md)
+
+
 ## 🎯 Objetivo
 
 Este repositório tem como principais objetivos:
