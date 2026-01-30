@@ -1,0 +1,75 @@
+@startuml
+' ================= Aparência =================
+skinparam style strictuml
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+
+skinparam class {
+    BackgroundColor #FFFFFF
+    BorderColor #2F2F2F
+    ArrowColor #2F2F2F
+}
+
+skinparam package {
+    BackgroundColor #F4F6F8
+    BorderColor #4A4A4A
+}
+
+title Bridge - Report x Renderer
+
+' ================= Implementação =================
+package "Implementação\n(Renderer)" {
+    interface Renderer {
+        +renderTitle(title: string): void
+        +renderSection(title: string, data: array): void
+        +renderFooter(text: string): void
+    }
+
+    class PdfRenderer {
+        +renderTitle(title: string): void
+        +renderSection(title: string, data: array): void
+        +renderFooter(text: string): void
+    }
+
+    class HtmlRenderer {
+        +renderTitle(title: string): void
+        +renderSection(title: string, data: array): void
+        +renderFooter(text: string): void
+    }
+
+    Renderer <|.. PdfRenderer
+    Renderer <|.. HtmlRenderer
+}
+
+' ================= Abstração =================
+package "Abstração\n(Report)" {
+    abstract class Report {
+        -renderer: Renderer
+        +__construct(renderer: Renderer)
+        +generate(): void
+        --
+        #getTitle(): string
+        #getSections(): array
+        #getFooter(): string
+    }
+
+    class SalesReport {
+        #getTitle(): string
+        #getSections(): array
+        #getFooter(): string
+    }
+
+    class FinancialReport {
+        #getTitle(): string
+        #getSections(): array
+        #getFooter(): string
+    }
+
+    Report <|-- SalesReport
+    Report <|-- FinancialReport
+}
+
+' ================= Bridge =================
+Report o-- Renderer : Bridge\n(composição)
+
+@enduml
